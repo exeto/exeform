@@ -20,11 +20,13 @@ export const get = <Values>(values: Values, name: string) => {
     }
 
     const [key, ...restKeys] = keys;
-    const value = key ? valuesInner[key] : undefined;
+    const value = valuesInner[key];
 
-    return Array.isArray(value) || isObject(value)
-      ? getInner(restKeys, value)
-      : value;
+    if (Array.isArray(value) || isObject(value)) {
+      return getInner(restKeys, value);
+    }
+
+    return restKeys.length ? undefined : value;
   };
 
   return getInner(name.split('.'), values);

@@ -1,6 +1,5 @@
 {
   "include": ["src"],
-  "exclude": ["**/*.test.*", "**/__tests__/*"],
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "esnext"],

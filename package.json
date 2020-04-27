@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint --ext .js,.ts,.tsx .",
-    "test": "yarn lint && jest --passWithNoTests --coverage && yarn build && size-limit",
+    "test": "yarn lint && jest --coverage && yarn build && size-limit",
     "build": "rm -rf lib && tsc",
     "codecov": "codecov --token=$CODECOV_TOKEN",
     "prepublishOnly": "yarn test"
