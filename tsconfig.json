@@ -1,0 +1,16 @@
+{
+  "include": ["src"],
+  "exclude": ["**/*.test.*", "**/__tests__/*"],
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "esnext"],
+    "module": "commonjs",
+    "declaration": true,
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./lib",
+    "jsx": "react"
+  }
+}

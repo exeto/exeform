@@ -1,0 +1,55 @@
+{
+  "name": "exeform",
+  "version": "0.1.0",
+  "description": "Forms with minimum code and maximum performance",
+  "repository": "exeto/exeform",
+  "main": "lib/index.js",
+  "author": "Timofey Dergachev <t@exeto.me> (https://exeto.me)",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts,.tsx .",
+    "test": "yarn lint && jest --passWithNoTests --coverage && yarn build && size-limit",
+    "build": "rm -rf lib && tsc",
+    "codecov": "codecov --token=$CODECOV_TOKEN",
+    "prepublishOnly": "yarn test"
+  },
+  "files": [
+    "lib",
+    "src",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "keywords": [
+    "form",
+    "forms",
+    "hooks",
+    "react",
+    "validation"
+  ],
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.4.5",
+    "@types/jest": "^25.2.1",
+    "@types/react": "^16.9.34",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "babel-eslint": "^10.1.0",
+    "codecov": "^3.6.0",
+    "eslint": "^6.2.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^3.0.0",
+    "husky": "^4.2.3",
+    "jest": "^25.3.0",
+    "lint-staged": "^10.0.9",
+    "prettier": "^2.0.2",
+    "react": "^16.13.1",
+    "size-limit": "^4.4.5",
+    "ts-jest": "^25.3.1",
+    "typescript": "^3.7.5"
+  }
+}

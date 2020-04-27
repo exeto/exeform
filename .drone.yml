@@ -1,0 +1,20 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: install
+    image: node:12.16.2-alpine
+    commands:
+      - yarn install
+
+  - name: test
+    image: node:12.16.2-alpine
+    commands:
+      - yarn test
+      - apk add --no-cache git
+      - yarn codecov
+    environment:
+      CODECOV_TOKEN:
+        from_secret: codecov-token
