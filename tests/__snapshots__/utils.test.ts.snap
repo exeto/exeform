@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`getTouched should return touched for errors 1`] = `
+Object {
+  "comments[0].text": true,
+  "info.name": true,
+}
+`;
+
 exports[`set should set non-existent path 1`] = `
 Object {
   "foo": Array [

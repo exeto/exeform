@@ -89,7 +89,7 @@ export const omitOne = <T extends any>(values: T, key: string): T => {
   return copy;
 };
 
-export const isEmpty = (value: {}) => Boolean(Object.keys(value).length);
+export const isEmpty = (value: {}) => !Object.keys(value).length;
 
 export const pick = <T extends any>(values: T, keys: string[]) =>
   keys.reduce((acc, key) => {

@@ -1,4 +1,4 @@
-import { get, set } from '../src/utils';
+import { get, set, getTouched, omitOne, isEmpty, pick } from '../src/utils';
 
 const values = {
   id: 42,
@@ -66,5 +66,44 @@ describe('set', () => {
   it('should set non-existent path', () => {
     expect(set({}, 'foo[0].bar', 'baz')).toMatchSnapshot();
     expect(set({ foo: 42 }, 'foo[0].bar.baz', 'bat')).toMatchSnapshot();
+  });
+});
+
+describe('getTouched', () => {
+  it('should return touched for errors', () => {
+    expect(getTouched({})).toEqual({});
+    expect(
+      getTouched({ 'info.name': 'error', 'comments[0].text': 'error' }),
+    ).toMatchSnapshot();
+  });
+});
+
+describe('omitOne', () => {
+  it('should omit one field from object', () => {
+    const data = { foo: 'bar', baz: 'bat' };
+
+    expect(omitOne(data, 'foo')).toEqual({ baz: 'bat' });
+    expect(omitOne(data, 'baz')).toEqual({ foo: 'bar' });
+  });
+});
+
+describe('isEmpty', () => {
+  it('should check that object is empty', () => {
+    expect(isEmpty({})).toBeTruthy();
+    expect(isEmpty({ foo: 'bar' })).toBeFalsy();
+    expect(isEmpty({ foo: undefined })).toBeFalsy();
+  });
+});
+
+describe('pick', () => {
+  it('should return object with specified fields', () => {
+    const data = { foo: 'bar', baz: 'bat', xyzzy: 'plugh' };
+
+    expect(pick(data, ['foo'])).toEqual({ foo: 'bar' });
+    expect(pick(data, ['baz'])).toEqual({ baz: 'bat' });
+    expect(pick(data, ['foo', 'xyzzy'])).toEqual({
+      foo: 'bar',
+      xyzzy: 'plugh',
+    });
   });
 });
