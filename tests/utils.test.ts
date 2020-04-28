@@ -1,4 +1,5 @@
-import { get, set, getTouched, omitOne, isEmpty, pick } from '../src/utils';
+import { get } from '../src';
+import { set, getTouched, omitOne, isEmpty, pick } from '../src/utils';
 
 const values = {
   id: 42,

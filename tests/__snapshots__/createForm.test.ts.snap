@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createForm should change field value 1`] = `
+Object {
+  "id": 84,
+  "info": Object {
+    "firstName": "John",
+  },
+}
+`;
+
+exports[`createForm should change field value 2`] = `
+Object {
+  "id": 84,
+  "info": Object {
+    "firstName": "Mike",
+  },
+}
+`;

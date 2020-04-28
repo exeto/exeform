@@ -18,7 +18,9 @@ const createForm = <Values>(options: Options<Values>): Form<Values> => {
   };
 
   const setFieldTouched = (name: string, isTouched = true) => {
-    touched = { ...touched, [name]: isTouched };
+    touched = isTouched
+      ? { ...touched, [name]: isTouched }
+      : omitOne(touched, name);
   };
 
   const getErrors = () => ({ ...errors, ...externalErrors });
@@ -49,8 +51,8 @@ const createForm = <Values>(options: Options<Values>): Form<Values> => {
       notify();
     },
 
-    setFieldTouched(name) {
-      setFieldTouched(name);
+    setFieldTouched(name, isTouched) {
+      setFieldTouched(name, isTouched);
       notify();
     },
 
