@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`set should set non-existent path 1`] = `
+Object {
+  "foo": Array [
+    Object {
+      "bar": "baz",
+    },
+  ],
+}
+`;
+
+exports[`set should set non-existent path 2`] = `
+Object {
+  "foo": Array [
+    Object {
+      "bar": Object {
+        "baz": "bat",
+      },
+    },
+  ],
+}
+`;
+
+exports[`set should set value 1`] = `
+Object {
+  "comments": Array [
+    Object {
+      "id": 56,
+      "text": "foo",
+    },
+    Object {
+      "id": 78,
+      "text": "bar",
+    },
+  ],
+  "commentsIds": Array [
+    56,
+    78,
+  ],
+  "id": 84,
+  "info": Object {
+    "name": "John",
+  },
+}
+`;
+
+exports[`set should set value to array 1`] = `
+Object {
+  "comments": Array [
+    Object {
+      "id": 56,
+      "text": "baz",
+    },
+    Object {
+      "id": 78,
+      "text": "bar",
+    },
+  ],
+  "commentsIds": Array [
+    56,
+    78,
+  ],
+  "id": 42,
+  "info": Object {
+    "name": "John",
+  },
+}
+`;
+
+exports[`set should set value to array 2`] = `
+Object {
+  "comments": Array [
+    Object {
+      "id": 56,
+      "text": "foo",
+    },
+    Object {
+      "id": 78,
+      "text": "bat",
+    },
+  ],
+  "commentsIds": Array [
+    56,
+    78,
+  ],
+  "id": 42,
+  "info": Object {
+    "name": "John",
+  },
+}
+`;
+
+exports[`set should set value to nested path 1`] = `
+Object {
+  "comments": Array [
+    Object {
+      "id": 56,
+      "text": "foo",
+    },
+    Object {
+      "id": 78,
+      "text": "bar",
+    },
+  ],
+  "commentsIds": Array [
+    56,
+    78,
+  ],
+  "id": 42,
+  "info": Object {
+    "name": "Mike",
+  },
+}
+`;
