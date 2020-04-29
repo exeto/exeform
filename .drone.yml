@@ -18,3 +18,7 @@ steps:
     environment:
       CODECOV_TOKEN:
         from_secret: codecov-token
+
+---
+kind: signature
+hmac: 2dd28792d105d3579e6c3a517f8278e79fe97e3847376415e4b3bf82d475a3e1
