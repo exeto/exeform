@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState, ChangeEvent } from 'react';
 
-import { get, omitOne } from './utils';
+import { get } from './utils';
 import useFormContext from './useFormContext';
-import { FieldOptions } from './types';
+import { FieldOptions, Field } from './types';
 
 const useField = (name: string, options?: FieldOptions) => {
   const form = useFormContext();
@@ -10,7 +10,7 @@ const useField = (name: string, options?: FieldOptions) => {
   const [error, setError] = useState(form.errors[name] || null);
   const [touched, setTouched] = useState(form.touched[name] || false);
   const type = options?.type || 'generic';
-  const isCheckbox = type === 'checkbox' || type === 'radio';
+  const isCheckbox = type === 'checkbox';
 
   useEffect(() => {
     const unsubscribe = form.subscribe(() => {
@@ -54,10 +54,11 @@ const useField = (name: string, options?: FieldOptions) => {
     setTouchedHelper();
   }, []);
 
-  const getGenericField = () => ({ name, value, onChange, onBlur });
+  const getGenericField = (): Field => ({ name, value, onChange, onBlur });
 
-  const getCheckboxField = () => ({
-    ...omitOne(getGenericField(), 'value'),
+  const getCheckboxField = (): Field => ({
+    ...getGenericField(),
+    value: undefined,
     checked: value,
   });
 

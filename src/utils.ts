@@ -81,7 +81,10 @@ export const getTouched = (errors: Errors) =>
     return acc;
   }, {});
 
-export const omitOne = <T extends any>(values: T, key: string): T => {
+export const omitOne = <T extends {}, K extends keyof T>(
+  values: T,
+  key: K,
+): Omit<T, K> => {
   const copy = { ...values };
 
   delete copy[key];

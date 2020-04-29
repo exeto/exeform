@@ -1,3 +1,5 @@
+import { ChangeEvent } from 'react';
+
 export type Touched = {
   [path: string]: boolean;
 };
@@ -14,7 +16,15 @@ export type Options<Values> = {
 };
 
 export type FieldOptions = {
-  type: 'checkbox' | 'radio';
+  type: 'generic' | 'checkbox';
+};
+
+export type Field = {
+  name: string;
+  value: any;
+  checked?: boolean;
+  onChange: ({ target }: ChangeEvent<any>) => void;
+  onBlur: () => void;
 };
 
 export type FormProps<Values> = {
