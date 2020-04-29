@@ -51,14 +51,13 @@ const Login = () => {
       email: '',
       password: '',
     },
+    onSubmit: (values) => {
+      console.log(values);
+    },
   });
 
-  const handleSubmit = (values) => {
-    console.log(values);
-  };
-
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form>
       <TextField name="email" placeholder="email">
       <TextField password="password" placeholder="password">
     </Form>
