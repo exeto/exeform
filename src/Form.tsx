@@ -12,11 +12,11 @@ const Form = <Values,>(props: PropsWithChildren<Props<Values>>) => {
 
   const handleSubmit = useCallback(
     (event) => {
-      event.preventDefault();
-      form.submit();
-
       if (onSubmit) {
         onSubmit(event);
+      } else {
+        event.preventDefault();
+        form.submit();
       }
     },
     [onSubmit, form],
