@@ -14,6 +14,7 @@ const createData = () => {
         lastName: 'Doe',
       },
     },
+    onSubmit: () => {},
   });
 
   const wrapper: FC = ({ children }) => (
@@ -60,22 +61,22 @@ describe('useField', () => {
       wrapper,
     });
 
-    expect(result.current.meta.touched).toBeFalsy();
+    expect(result.current.meta.touched).toBe(false);
 
     act(() => result.current.field.onBlur());
-    expect(result.current.meta.touched).toBeTruthy();
+    expect(result.current.meta.touched).toBe(true);
 
     act(() => result.current.helpers.setTouched(false));
-    expect(result.current.meta.touched).toBeFalsy();
+    expect(result.current.meta.touched).toBe(false);
 
     act(() => result.current.helpers.setTouched());
-    expect(result.current.meta.touched).toBeTruthy();
+    expect(result.current.meta.touched).toBe(true);
 
     act(() => form.setFieldTouched('info.firstName', false));
-    expect(result.current.meta.touched).toBeFalsy();
+    expect(result.current.meta.touched).toBe(false);
 
     act(() => result.current.helpers.setError('error'));
-    expect(result.current.meta.touched).toBeTruthy();
+    expect(result.current.meta.touched).toBe(true);
   });
 
   it('should change error', () => {

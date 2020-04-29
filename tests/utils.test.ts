@@ -90,9 +90,9 @@ describe('omitOne', () => {
 
 describe('isEmpty', () => {
   it('should check that object is empty', () => {
-    expect(isEmpty({})).toBeTruthy();
-    expect(isEmpty({ foo: 'bar' })).toBeFalsy();
-    expect(isEmpty({ foo: undefined })).toBeFalsy();
+    expect(isEmpty({})).toBe(true);
+    expect(isEmpty({ foo: 'bar' })).toBe(false);
+    expect(isEmpty({ foo: undefined })).toBe(false);
   });
 });
 

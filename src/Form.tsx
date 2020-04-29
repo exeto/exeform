@@ -1,9 +1,9 @@
 import React, { useCallback, PropsWithChildren } from 'react';
 
 import { FormProvider } from './context';
-import { Form as FormType, FormProps } from './types';
+import { Form as FormType } from './types';
 
-type Props<Values> = FormProps<Values> & {
+type Props<Values> = JSX.IntrinsicElements['form'] & {
   form: FormType<Values>;
 };
 
@@ -13,10 +13,10 @@ const Form = <Values,>(props: PropsWithChildren<Props<Values>>) => {
   const handleSubmit = useCallback(
     (event) => {
       event.preventDefault();
-      form.touchAllFields();
+      form.submit();
 
-      if (form.isValid) {
-        onSubmit(form.values);
+      if (onSubmit) {
+        onSubmit(event);
       }
     },
     [onSubmit, form],
