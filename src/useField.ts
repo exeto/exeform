@@ -2,15 +2,12 @@ import { useCallback, useEffect, useState, ChangeEvent } from 'react';
 
 import { get } from './utils';
 import useFormContext from './useFormContext';
-import { FieldOptions, Field } from './types';
 
-const useField = (name: string, options?: FieldOptions) => {
+const useField = (name: string) => {
   const form = useFormContext();
   const [value, setValue] = useState(get(form.values, name));
   const [error, setError] = useState(form.errors[name] || null);
   const [touched, setTouched] = useState(form.touched[name] || false);
-  const type = options?.type || 'generic';
-  const isCheckbox = type === 'checkbox';
 
   useEffect(() => {
     const unsubscribe = form.subscribe(() => {
@@ -45,25 +42,17 @@ const useField = (name: string, options?: FieldOptions) => {
 
   const onChange = useCallback(
     ({ target }: ChangeEvent<any>) => {
-      setValueHelper(isCheckbox ? target.checked : target.value);
+      setValueHelper(target.value);
     },
-    [isCheckbox, setValueHelper],
+    [setValueHelper],
   );
 
   const onBlur = useCallback(() => {
     setTouchedHelper();
   }, []);
 
-  const getGenericField = (): Field => ({ name, value, onChange, onBlur });
-
-  const getCheckboxField = (): Field => ({
-    ...getGenericField(),
-    value: undefined,
-    checked: value,
-  });
-
   return {
-    field: isCheckbox ? getCheckboxField() : getGenericField(),
+    field: { name, value, onChange, onBlur },
     meta: { error, touched },
     helpers: {
       setValue: setValueHelper,

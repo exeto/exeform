@@ -1,5 +1,3 @@
-import { ChangeEvent } from 'react';
-
 export type Touched = {
   [path: string]: boolean;
 };
@@ -14,18 +12,6 @@ export type Options<Values> = {
   initialValues: Values;
   onSubmit(values: Values): void;
   validate?: Validate<Values>;
-};
-
-export type FieldOptions = {
-  type: 'generic' | 'checkbox';
-};
-
-export type Field = {
-  name: string;
-  value: any;
-  checked?: boolean;
-  onChange: ({ target }: ChangeEvent<any>) => void;
-  onBlur: () => void;
 };
 
 export type Listener = () => void;

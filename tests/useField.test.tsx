@@ -5,10 +5,9 @@ import { useField } from '../src';
 import createForm from '../src/createForm';
 import { FormProvider } from '../src/context';
 
-const createData = () => {
+export const createData = () => {
   const form = createForm({
     initialValues: {
-      registered: false,
       info: {
         firstName: 'John',
         lastName: 'Doe',
@@ -40,10 +39,9 @@ describe('useField', () => {
   it('should return new value after change', () => {
     const { form, wrapper } = createData();
 
-    const { result } = renderHook(
-      () => useField('info.firstName', { type: 'generic' }),
-      { wrapper },
-    );
+    const { result } = renderHook(() => useField('info.firstName'), {
+      wrapper,
+    });
 
     act(() => result.current.field.onChange(createEvent('Mike')));
     expect(result.current.field.value).toBe('Mike');
@@ -82,10 +80,9 @@ describe('useField', () => {
   it('should change error', () => {
     const { form, wrapper } = createData();
 
-    const { result } = renderHook(
-      () => useField('info.firstName', { type: 'generic' }),
-      { wrapper },
-    );
+    const { result } = renderHook(() => useField('info.firstName'), {
+      wrapper,
+    });
 
     expect(result.current.meta.error).toBeNull();
 
@@ -97,21 +94,5 @@ describe('useField', () => {
 
     act(() => result.current.helpers.setValue('Mike'));
     expect(result.current.meta.error).toBeNull();
-  });
-
-  it('should check field with type checkbox', () => {
-    const { result } = renderHook(
-      () => useField('registered', { type: 'checkbox' }),
-      { wrapper: createData().wrapper },
-    );
-
-    expect(result.current.field.checked).toBe(false);
-    expect(result.current.field.value).toBeUndefined();
-
-    act(() => {
-      result.current.field.onChange({ target: { checked: true } } as any);
-    });
-    expect(result.current.field.checked).toBe(true);
-    expect(result.current.field.value).toBeUndefined();
   });
 });

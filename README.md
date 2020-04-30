@@ -19,7 +19,7 @@ yarn add exeform
 import { useForm, useField } from 'exeform';
 
 const validate = (values) => {
-  let errors = {};
+  const errors = {};
 
   if (!values.email) {
     errors.email = 'This field is required';
