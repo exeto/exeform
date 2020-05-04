@@ -1,5 +1,5 @@
 import { get } from '../src';
-import { set, getTouched, omitOne, isEmpty, pick } from '../src/utils';
+import { set, getTouched, omitOne, isEmpty } from '../src/utils';
 
 const values = {
   id: 42,
@@ -93,18 +93,5 @@ describe('isEmpty', () => {
     expect(isEmpty({})).toBe(true);
     expect(isEmpty({ foo: 'bar' })).toBe(false);
     expect(isEmpty({ foo: undefined })).toBe(false);
-  });
-});
-
-describe('pick', () => {
-  it('should return object with specified fields', () => {
-    const data = { foo: 'bar', baz: 'bat', xyzzy: 'plugh' };
-
-    expect(pick(data, ['foo'])).toEqual({ foo: 'bar' });
-    expect(pick(data, ['baz'])).toEqual({ baz: 'bat' });
-    expect(pick(data, ['foo', 'xyzzy'])).toEqual({
-      foo: 'bar',
-      xyzzy: 'plugh',
-    });
   });
 });

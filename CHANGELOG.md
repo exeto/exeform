@@ -1,6 +1,7 @@
 ## Unreleased
 
-- Add `useFieldValue` hook
+- Added `useFieldValue` hook
+- Fixed a bug where some fields in touched could be undefined
 
 ## 0.3.0 (May 4, 2020)
 

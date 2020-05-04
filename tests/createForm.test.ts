@@ -114,6 +114,19 @@ describe('createForm', () => {
     expect(form.isValid).toBe(true);
   });
 
+  it('should update touched after setFieldValue', () => {
+    const form = createForm({
+      initialValues: { flag: false, foo: '', bar: '' },
+      validate: (values) => (values.flag ? { foo: 'error', bar: 'error' } : {}),
+      onSubmit: () => {},
+    });
+
+    expect(form.touched).toEqual({});
+
+    form.setFieldValue('flag', true);
+    expect(form.touched).toEqual({ foo: false, bar: false });
+  });
+
   it('should touch all fields with error', () => {
     const form = createForm({
       initialValues: values,

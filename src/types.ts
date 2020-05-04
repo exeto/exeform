@@ -1,9 +1,9 @@
 export type Touched = {
-  [path: string]: boolean;
+  [path: string]: boolean | undefined;
 };
 
 export type Errors = {
-  [path: string]: string;
+  [path: string]: string | undefined;
 };
 
 export type Validate<Values> = (values: Values) => Errors;

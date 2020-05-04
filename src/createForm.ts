@@ -1,4 +1,4 @@
-import { set, getTouched, omitOne, isEmpty, pick } from './utils';
+import { set, getTouched, omitOne, isEmpty } from './utils';
 import { Options, Form, Listener, Touched, Errors } from './types';
 
 const defaultValidate = () => ({});
@@ -54,7 +54,7 @@ const createForm = <Values>(options: Options<Values>): Form<Values> => {
       values = set(values, name, value);
       errors = validate(values);
       externalErrors = omitOne(externalErrors, name);
-      touched = pick(touched, Object.keys(getErrors()));
+      touched = getTouched(getErrors(), touched);
 
       notify();
     },

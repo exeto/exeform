@@ -74,9 +74,9 @@ export const set = <Values>(
   return setInner(parseName(name), values);
 };
 
-export const getTouched = (errors: Errors) =>
+export const getTouched = (errors: Errors, touched?: Touched) =>
   Object.keys(errors).reduce((acc: Touched, key) => {
-    acc[key] = true;
+    acc[key] = touched ? touched[key] || false : true;
 
     return acc;
   }, {});
@@ -93,10 +93,3 @@ export const omitOne = <T extends {}, K extends keyof T>(
 };
 
 export const isEmpty = (value: {}) => !Object.keys(value).length;
-
-export const pick = <T extends any>(values: T, keys: string[]) =>
-  keys.reduce((acc, key) => {
-    acc[key] = values[key];
-
-    return acc;
-  }, {} as T);
