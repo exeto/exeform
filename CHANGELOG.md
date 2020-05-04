@@ -1,3 +1,7 @@
+## Unreleased
+
+- Add `useFieldValue` hook
+
 ## 0.3.0 (May 4, 2020)
 
 - Removed options from `useField` hook
