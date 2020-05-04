@@ -1,10 +1,15 @@
 ![exeform](media/logo.svg)
 
+[![npm](https://flat.badgen.net/npm/v/exeform)](https://www.npmjs.com/package/exeform)
+[![npm bundle size](https://flat.badgen.net/bundlephobia/minzip/exeform)](https://bundlephobia.com/result?p=exeform)
+[![coverage](https://flat.badgen.net/codecov/c/github/exeto/exeform)](https://codecov.io/gh/exeto/exeform)
+[![license](https://flat.badgen.net/github/license/exeto/exeform)](LICENSE.md)
+
 > Forms with minimum code and maximum performance
 
 - Maximum out-of-the-box performance
 - Modern and minimalistic API
-- Small size, [1.7 KB](https://bundlephobia.com/result?p=exeform) (minified and gzipped)
+- Small size, [2 KB](https://bundlephobia.com/result?p=exeform) (minified and gzipped)
 - No dependencies
 
 ## Install
@@ -60,6 +65,7 @@ const Login = () => {
     <Form>
       <TextField name="email" placeholder="email">
       <TextField password="password" placeholder="password">
+      <button type="submit">Submit<button>
     </Form>
   );
 };
