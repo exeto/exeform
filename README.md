@@ -1,4 +1,4 @@
-# exeform
+![exeform](media/logo.svg)
 
 > Forms with minimum code and maximum performance
 
