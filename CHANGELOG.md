@@ -1,4 +1,4 @@
-## Unreleased
+## 0.4.0 (May 7, 2020)
 
 - Added `useFieldValue` hook
 - Added export for `Form` component
