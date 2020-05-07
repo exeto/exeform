@@ -1,6 +1,12 @@
 ## Unreleased
 
 - Added `useFieldValue` hook
+- Added export for `Form` component
+- Added export for `FormProvider`
+- Changed `useForm` api, now return only `form` instance
+- Removed `submit` method from `form` instance
+- Removed default `onSubmit` handler from `Form` component
+- Removed `onSubmit` option from `useForm` hook
 - Fixed a bug where some fields in touched could be undefined
 
 ## 0.3.0 (May 4, 2020)

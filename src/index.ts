@@ -1,5 +1,9 @@
 export * from './types';
 
+export { FormProvider } from './context';
+
+export { default as Form } from './Form';
+
 export { default as useForm } from './useForm';
 
 export { default as useFormContext } from './useFormContext';

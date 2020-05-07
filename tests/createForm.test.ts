@@ -9,7 +9,7 @@ describe('createForm', () => {
   };
 
   it('should return initial value', () => {
-    const form = createForm({ initialValues: values, onSubmit: () => {} });
+    const form = createForm({ initialValues: values });
 
     expect(form.values).toBe(values);
     expect(form.touched).toEqual({});
@@ -17,7 +17,7 @@ describe('createForm', () => {
   });
 
   it('should change field value', () => {
-    const form = createForm({ initialValues: values, onSubmit: () => {} });
+    const form = createForm({ initialValues: values });
 
     form.setFieldValue('id', 84);
     expect(form.values).toMatchSnapshot();
@@ -27,7 +27,7 @@ describe('createForm', () => {
   });
 
   it('should touch field', () => {
-    const form = createForm({ initialValues: values, onSubmit: () => {} });
+    const form = createForm({ initialValues: values });
 
     expect(form.touched).toEqual({});
 
@@ -44,44 +44,8 @@ describe('createForm', () => {
     expect(form.touched).toEqual({});
   });
 
-  it('should touch all fields after submit', () => {
-    const form = createForm({
-      initialValues: values,
-      onSubmit: () => {},
-      validate: () => ({ id: 'error', 'info.firstName': 'error' }),
-    });
-
-    expect(form.touched).toEqual({});
-
-    form.submit();
-    expect(form.touched).toEqual({ id: true, 'info.firstName': true });
-  });
-
-  it('should call onSubmit if form is valid', () => {
-    const handleSubmit = jest.fn();
-
-    const form = createForm({
-      initialValues: values,
-      onSubmit: handleSubmit,
-    });
-
-    expect(handleSubmit).not.toBeCalled();
-
-    form.setFieldError('id', 'error');
-    form.submit();
-    expect(handleSubmit).not.toBeCalled();
-
-    form.setFieldValue('id', 84);
-    form.submit();
-    expect(handleSubmit).toBeCalledTimes(1);
-    expect(handleSubmit).toBeCalledWith({
-      id: 84,
-      info: { firstName: 'John' },
-    });
-  });
-
   it('should add custom error for field', () => {
-    const form = createForm({ initialValues: values, onSubmit: () => {} });
+    const form = createForm({ initialValues: values });
 
     expect(form.errors).toEqual({});
     expect(form.isValid).toBe(true);
@@ -101,7 +65,7 @@ describe('createForm', () => {
   });
 
   it('should remove custom error after field change', () => {
-    const form = createForm({ initialValues: values, onSubmit: () => {} });
+    const form = createForm({ initialValues: values });
 
     form.setFieldError('id', 'error');
     expect(form.errors).toEqual({ id: 'error' });
@@ -118,7 +82,6 @@ describe('createForm', () => {
     const form = createForm({
       initialValues: { flag: false, foo: '', bar: '' },
       validate: (values) => (values.flag ? { foo: 'error', bar: 'error' } : {}),
-      onSubmit: () => {},
     });
 
     expect(form.touched).toEqual({});
@@ -130,7 +93,6 @@ describe('createForm', () => {
   it('should touch all fields with error', () => {
     const form = createForm({
       initialValues: values,
-      onSubmit: () => {},
       validate: () => ({ id: 'error', 'info.firstName': 'error' }),
     });
 
@@ -141,7 +103,7 @@ describe('createForm', () => {
   });
 
   it('should run listeners after change form state', () => {
-    const form = createForm({ initialValues: values, onSubmit: () => {} });
+    const form = createForm({ initialValues: values });
     const spy1 = jest.fn();
     const spy2 = jest.fn();
 
@@ -169,7 +131,7 @@ describe('createForm', () => {
   });
 
   it('should unsubscribe listener', () => {
-    const form = createForm({ initialValues: values, onSubmit: () => {} });
+    const form = createForm({ initialValues: values });
     const spy1 = jest.fn();
     const spy2 = jest.fn();
     const spy3 = jest.fn();
@@ -196,7 +158,6 @@ describe('createForm', () => {
           firstName: null,
         },
       },
-      onSubmit: () => {},
       validate: (values) => {
         const errors: { [key: string]: any } = {};
 

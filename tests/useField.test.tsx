@@ -13,7 +13,6 @@ export const createData = () => {
         lastName: 'Doe',
       },
     },
-    onSubmit: () => {},
   });
 
   const wrapper: FC = ({ children }) => (

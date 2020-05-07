@@ -10,7 +10,6 @@ export type Validate<Values> = (values: Values) => Errors;
 
 export type Options<Values> = {
   initialValues: Values;
-  onSubmit(values: Values): void;
   validate?: Validate<Values>;
 };
 
@@ -27,6 +26,5 @@ export type Form<Values = any> = {
   setFieldTouched(name: string, isTouched?: boolean): void;
   setFieldError(name: string, message: string): void;
   touchAllFields(): void;
-  submit(): void;
   subscribe(listener: Listener): Unsubscribe;
 };

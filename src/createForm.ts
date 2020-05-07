@@ -4,7 +4,7 @@ import { Options, Form, Listener, Touched, Errors } from './types';
 const defaultValidate = () => ({});
 
 const createForm = <Values>(options: Options<Values>): Form<Values> => {
-  const { validate = defaultValidate, initialValues, onSubmit } = options;
+  const { validate = defaultValidate, initialValues } = options;
   const listeners: Listener[] = [];
   let values = initialValues;
   let touched: Touched = {};
@@ -21,12 +21,6 @@ const createForm = <Values>(options: Options<Values>): Form<Values> => {
     touched = isTouched
       ? { ...touched, [name]: isTouched }
       : omitOne(touched, name);
-  };
-
-  const touchAllFields = () => {
-    touched = getTouched(errors);
-
-    notify();
   };
 
   const getErrors = () => ({ ...errors, ...externalErrors });
@@ -71,14 +65,10 @@ const createForm = <Values>(options: Options<Values>): Form<Values> => {
       notify();
     },
 
-    touchAllFields,
+    touchAllFields() {
+      touched = getTouched(errors);
 
-    submit() {
-      touchAllFields();
-
-      if (isValid()) {
-        onSubmit(values);
-      }
+      notify();
     },
 
     subscribe(fn) {

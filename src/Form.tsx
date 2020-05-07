@@ -1,4 +1,4 @@
-import React, { useCallback, PropsWithChildren } from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import { FormProvider } from './context';
 import { Form as FormType } from './types';
@@ -8,23 +8,11 @@ type Props<Values> = JSX.IntrinsicElements['form'] & {
 };
 
 const Form = <Values,>(props: PropsWithChildren<Props<Values>>) => {
-  const { form, onSubmit, ...rest } = props;
-
-  const handleSubmit = useCallback(
-    (event) => {
-      if (onSubmit) {
-        onSubmit(event);
-      } else {
-        event.preventDefault();
-        form.submit();
-      }
-    },
-    [onSubmit, form],
-  );
+  const { form, ...rest } = props;
 
   return (
     <FormProvider value={form}>
-      <form {...rest} noValidate onSubmit={handleSubmit} />
+      <form {...rest} noValidate />
     </FormProvider>
   );
 };

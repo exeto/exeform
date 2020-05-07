@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useForm should return form instance 1`] = `
+Object {
+  "errors": Object {},
+  "isValid": true,
+  "setFieldError": [Function],
+  "setFieldTouched": [Function],
+  "setFieldValue": [Function],
+  "subscribe": [Function],
+  "touchAllFields": [Function],
+  "touched": Object {},
+  "values": Object {
+    "info": Object {
+      "firstName": "John",
+    },
+  },
+}
+`;

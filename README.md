@@ -21,7 +21,8 @@ yarn add exeform
 ## Usage
 
 ```js
-import { useForm, useField } from 'exeform';
+import React from 'react';
+import { Form, useForm, useField } from 'exeform';
 
 const validate = (values) => {
   const errors = {};
@@ -50,19 +51,25 @@ const TextField = ({ name, ...rest }) => {
 };
 
 const Login = () => {
-  const { Form } = useForm({
+  const form = useForm({
     validate,
     initialValues: {
       email: '',
       password: '',
     },
-    onSubmit: (values) => {
-      console.log(values);
-    },
   });
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    form.touchAllFields();
+
+    if (form.isValid) {
+      console.log(form.values);
+    }
+  };
+
   return (
-    <Form>
+    <Form form={form} onSubmit={handleSubmit}>
       <TextField name="email" placeholder="email">
       <TextField password="password" placeholder="password">
       <button type="submit">Submit<button>
