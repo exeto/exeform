@@ -1,9 +1,9 @@
 import { set, getTouched, omitOne, isEmpty } from './utils';
-import { Options, Form, Listener, Touched, Errors } from './types';
+import { Options, FormType, Listener, Touched, Errors } from './types';
 
 const defaultValidate = () => ({});
 
-const createForm = <Values>(options: Options<Values>): Form<Values> => {
+const createForm = <Values>(options: Options<Values>): FormType<Values> => {
   const { validate = defaultValidate, initialValues } = options;
   const listeners: Listener[] = [];
   let values = initialValues;

@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 
 import { FormProvider } from './context';
-import { Form as FormType } from './types';
+import { FormType } from './types';
 
 type Props<Values> = JSX.IntrinsicElements['form'] & {
   form: FormType<Values>;

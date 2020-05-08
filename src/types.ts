@@ -17,7 +17,7 @@ export type Listener = () => void;
 
 export type Unsubscribe = () => void;
 
-export type Form<Values = any> = {
+export type FormType<Values = any> = {
   values: Values;
   touched: Touched;
   errors: Errors;

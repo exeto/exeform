@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
-import { Form } from './types';
+import { FormType } from './types';
 
-export const FormContext = createContext<Form | null>(null);
+export const FormContext = createContext<FormType | null>(null);
 
 export const FormProvider = FormContext.Provider;

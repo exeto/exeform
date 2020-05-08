@@ -1,4 +1,12 @@
-export * from './types';
+export {
+  Touched,
+  Errors,
+  Validate,
+  Options,
+  Listener,
+  Unsubscribe,
+  FormType,
+} from './types';
 
 export { FormProvider } from './context';
 
