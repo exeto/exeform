@@ -1,4 +1,4 @@
-## Unreleased
+## 0.4.1 (May 8, 2020)
 
 - Renamed `Form` type to `FormType`
 
