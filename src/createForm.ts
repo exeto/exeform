@@ -71,6 +71,15 @@ const createForm = <Values>(options: Options<Values>): FormType<Values> => {
       notify();
     },
 
+    reset() {
+      values = initialValues;
+      touched = {};
+      errors = validate(initialValues);
+      externalErrors = {};
+
+      notify();
+    },
+
     subscribe(fn) {
       listeners.push(fn);
 

@@ -4,6 +4,7 @@ exports[`useForm should return form instance 1`] = `
 Object {
   "errors": Object {},
   "isValid": true,
+  "reset": [Function],
   "setFieldError": [Function],
   "setFieldTouched": [Function],
   "setFieldValue": [Function],
