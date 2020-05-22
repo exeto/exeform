@@ -186,4 +186,26 @@ describe('createForm', () => {
     expect(form.errors).toEqual({});
     expect(form.isValid).toBe(true);
   });
+
+  it('should reset form', () => {
+    const initialValues = { firstName: 'John' };
+
+    const form = createForm({
+      initialValues,
+      validate: (values) => (values.firstName ? {} : { firstName: 'error' }),
+    });
+
+    form.setFieldValue('firstName', 'Mike');
+    form.setFieldError('firstName', 'external-error');
+
+    const listener = jest.fn();
+
+    form.subscribe(listener);
+    form.reset();
+
+    expect(listener).toBeCalledTimes(1);
+    expect(form.values).toBe(initialValues);
+    expect(form.errors).toEqual({});
+    expect(form.touched).toEqual({});
+  });
 });

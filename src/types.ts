@@ -26,5 +26,6 @@ export type FormType<Values = any> = {
   setFieldTouched(name: string, isTouched?: boolean): void;
   setFieldError(name: string, message: string): void;
   touchAllFields(): void;
+  reset(): void;
   subscribe(listener: Listener): Unsubscribe;
 };

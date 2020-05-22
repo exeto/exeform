@@ -1,6 +1,7 @@
 ## Unreleased
 
 - Added `useFormIsValid` hook
+- Added `reset` method
 
 ## 0.4.1 (May 8, 2020)
 
