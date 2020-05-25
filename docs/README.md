@@ -1,15 +1,20 @@
 # Getting Started
 
-![](.gitbook/assets/logo.svg) 
+![](.gitbook/assets/logo.svg)
+
+[![npm](https://flat.badgen.net/npm/v/exeform)](https://www.npmjs.com/package/exeform)
+[![npm bundle size](https://flat.badgen.net/bundlephobia/minzip/exeform)](https://bundlephobia.com/result?p=exeform)
+[![coverage](https://flat.badgen.net/codecov/c/github/exeto/exeform)](https://codecov.io/gh/exeto/exeform)
+[![license](https://flat.badgen.net/github/license/exeto/exeform)](https://github.com/exeto/exeform/blob/master/LICENSE.md)
 
 > Forms with minimum code and maximum performance
 
 ## Features
 
-* Maximum out-of-the-box performance
-* Modern and minimalistic API
-* Small size, [2 KB](https://bundlephobia.com/result?p=exeform) \(minified and gzipped\)
-* No dependencies
+- Maximum out-of-the-box performance
+- Modern and minimalistic API
+- Small size, [2 KB](https://bundlephobia.com/result?p=exeform) \(minified and gzipped\)
+- No dependencies
 
 ## Install
 
@@ -21,7 +26,7 @@ yarn add exeform
 
 Or `npm`:
 
-```javascript
+```bash
 npm install exeform
 ```
 
@@ -89,4 +94,3 @@ const Login = () => {
 ## License
 
 [MIT](https://github.com/exeto/exeform/blob/master/LICENSE.md) © [Timofey Dergachev](https://exeto.me/)
-

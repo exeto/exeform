@@ -7,6 +7,8 @@
 
 > Forms with minimum code and maximum performance
 
+## Features
+
 - Maximum out-of-the-box performance
 - Modern and minimalistic API
 - Small size, [2 KB](https://bundlephobia.com/result?p=exeform) (minified and gzipped)
@@ -14,11 +16,19 @@
 
 ## Install
 
+Install using `yarn`:
+
 ```sh
 yarn add exeform
 ```
 
-## Usage
+Or `npm`:
+
+```sh
+npm install exeform
+```
+
+## Basic Example
 
 ```js
 import React from 'react';
@@ -65,6 +75,7 @@ const Login = () => {
 
     if (form.isValid) {
       console.log(form.values);
+      form.reset();
     }
   };
 
