@@ -81,9 +81,9 @@ const Login = () => {
 
   return (
     <Form form={form} onSubmit={handleSubmit}>
-      <TextField name="email" placeholder="email">
-      <TextField password="password" placeholder="password">
-      <button type="submit">Submit<button>
+      <TextField name="email" placeholder="email" />
+      <TextField name="password" placeholder="password" type="password" />
+      <button type="submit">Submit</button>
     </Form>
   );
 };

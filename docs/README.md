@@ -1,6 +1,6 @@
 # Getting Started
 
-![](.gitbook/assets/logo%20%281%29.svg) 
+![](.gitbook/assets/logo.svg)
 
 [![npm](https://flat.badgen.net/npm/v/exeform)](https://www.npmjs.com/package/exeform) [![npm bundle size](https://flat.badgen.net/bundlephobia/minzip/exeform)](https://bundlephobia.com/result?p=exeform) [![coverage](https://flat.badgen.net/codecov/c/github/exeto/exeform)](https://codecov.io/gh/exeto/exeform) [![license](https://flat.badgen.net/github/license/exeto/exeform)](https://github.com/exeto/exeform/blob/master/LICENSE.md)
 
@@ -8,10 +8,10 @@
 
 ## Features
 
-* Maximum out-of-the-box performance
-* Modern and minimalistic API
-* Small size, [2 KB](https://bundlephobia.com/result?p=exeform) \(minified and gzipped\)
-* No dependencies
+- Maximum out-of-the-box performance
+- Modern and minimalistic API
+- Small size, [2 KB](https://bundlephobia.com/result?p=exeform) \(minified and gzipped\)
+- No dependencies
 
 ## Install
 
@@ -80,9 +80,9 @@ const Login = () => {
 
   return (
     <Form form={form} onSubmit={handleSubmit}>
-      <TextField name="email" placeholder="email">
-      <TextField password="password" placeholder="password">
-      <button type="submit">Submit<button>
+      <TextField name="email" placeholder="email" />
+      <TextField name="password" placeholder="password" type="password" />
+      <button type="submit">Submit</button>
     </Form>
   );
 };
@@ -91,4 +91,3 @@ const Login = () => {
 ## License
 
 [MIT](https://github.com/exeto/exeform/blob/master/LICENSE.md) © [Timofey Dergachev](https://exeto.me/)
-
