@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { renderHook, act } from '@testing-library/react-hooks';
+import { render, act as reactAct } from '@testing-library/react';
 
-import { useField } from '../src';
+import { FormProvider, useField } from '../src';
 import createForm from '../src/createForm';
-import { FormProvider } from '../src/context';
 
 export const createData = () => {
   const form = createForm({
@@ -93,5 +93,26 @@ describe('useField', () => {
 
     act(() => result.current.helpers.setValue('Mike'));
     expect(result.current.meta.error).toBeNull();
+  });
+
+  it('should not render when state not changed', () => {
+    const { wrapper: Wrapper, form } = createData();
+    const spy = jest.fn();
+
+    const Component = () => {
+      useField('info.lastName');
+      spy();
+
+      return null;
+    };
+
+    render(
+      <Wrapper>
+        <Component />
+      </Wrapper>,
+    );
+
+    reactAct(() => form.setFieldValue('info.firstName', 'Mike'));
+    expect(spy).toBeCalledTimes(1);
   });
 });

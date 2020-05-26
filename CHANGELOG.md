@@ -1,3 +1,7 @@
+## Unreleased
+
+- Optimized state update in `useField`
+
 ## 0.5.0 (May 22, 2020)
 
 - Added `useFormIsValid` hook

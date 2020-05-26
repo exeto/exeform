@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 
-import { useFormContext } from '../src';
-import { FormProvider } from '../src/context';
+import { useFormContext, FormProvider } from '../src';
 
 describe('useFormContext', () => {
   it('should throw error if no form in context', () => {

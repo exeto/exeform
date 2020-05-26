@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 import { renderHook, act } from '@testing-library/react-hooks';
 
-import { useFormIsValid } from '../src';
+import { FormProvider, useFormIsValid } from '../src';
 import createForm from '../src/createForm';
-import { FormProvider } from '../src/context';
 
 const createData = () => {
   const form = createForm({
