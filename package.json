@@ -1,6 +1,6 @@
 {
   "name": "exeform",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Forms with minimum code and maximum performance",
   "repository": "exeto/exeform",
   "main": "lib/index.js",
