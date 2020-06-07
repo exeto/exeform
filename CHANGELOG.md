@@ -1,4 +1,4 @@
-## Unreleased
+## 0.5.2 (June 7, 2020)
 
 - Fixed `touchAllFields` when there are custom errors
 
