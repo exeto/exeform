@@ -100,6 +100,14 @@ describe('createForm', () => {
 
     form.touchAllFields();
     expect(form.touched).toEqual({ id: true, 'info.firstName': true });
+
+    form.setFieldError('info', 'custom-error');
+    form.touchAllFields();
+    expect(form.touched).toEqual({
+      id: true,
+      'info.firstName': true,
+      info: true,
+    });
   });
 
   it('should run listeners after change form state', () => {

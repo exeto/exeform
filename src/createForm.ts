@@ -66,7 +66,7 @@ const createForm = <Values>(options: Options<Values>): FormType<Values> => {
     },
 
     touchAllFields() {
-      touched = getTouched(errors);
+      touched = getTouched(getErrors());
 
       notify();
     },

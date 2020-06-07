@@ -1,3 +1,7 @@
+## Unreleased
+
+- Fixed `touchAllFields` when there are custom errors
+
 ## 0.5.1 (May 26, 2020)
 
 - Optimized state update in `useField`
