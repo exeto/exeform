@@ -50,9 +50,9 @@
     "jest": "^25.3.0",
     "lint-staged": "^10.0.9",
     "prettier": "^2.0.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-test-renderer": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-test-renderer": "^17.0.1",
     "size-limit": "^4.4.5",
     "ts-jest": "^25.3.1",
     "typescript": "^3.7.5"
