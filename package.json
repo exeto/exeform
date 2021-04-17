@@ -11,7 +11,8 @@
     "test": "yarn lint && jest --coverage && yarn build && size-limit",
     "build": "rm -rf lib && tsc",
     "codecov": "codecov --token=$CODECOV_TOKEN",
-    "prepublishOnly": "yarn test"
+    "prepublishOnly": "yarn test",
+    "prepare": "husky install"
   },
   "files": [
     "lib",
@@ -46,7 +47,7 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^4.0.0",
-    "husky": "^4.2.3",
+    "husky": "^6.0.0",
     "jest": "^25.3.0",
     "lint-staged": "^10.0.9",
     "prettier": "^2.0.2",
