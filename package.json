@@ -11,7 +11,8 @@
     "test": "yarn lint && jest --coverage && yarn build && size-limit",
     "build": "rm -rf lib && tsc",
     "codecov": "codecov --token=$CODECOV_TOKEN",
-    "prepublishOnly": "yarn test"
+    "prepublishOnly": "yarn test",
+    "prepare": "husky install"
   },
   "files": [
     "lib",
