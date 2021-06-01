@@ -34,7 +34,7 @@
     "@size-limit/preset-small-lib": "^4.4.5",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^11.0.2",
-    "@testing-library/react-hooks": "^6.0.0",
+    "@testing-library/react-hooks": "^7.0.0",
     "@types/jest": "^26.0.0",
     "@types/react": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
