@@ -10,7 +10,6 @@
     "lint": "eslint --ext .js,.ts,.tsx .",
     "test": "yarn lint && jest --coverage && yarn build && size-limit",
     "build": "rm -rf lib && tsc",
-    "codecov": "codecov --token=$CODECOV_TOKEN",
     "prepublishOnly": "yarn test",
     "prepare": "husky install"
   },
@@ -41,7 +40,6 @@
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
     "babel-eslint": "^10.1.0",
-    "codecov": "^3.6.0",
     "eslint": "^6.2.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^6.10.1",
