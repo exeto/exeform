@@ -1,3 +1,7 @@
+## 0.6.0 (December 20, 2021)
+
+- Updated dependencies
+
 ## 0.5.2 (June 7, 2020)
 
 - Fixed `touchAllFields` when there are custom errors
