@@ -1,3 +1,5 @@
+/** @jest-environment jsdom */
+
 import '@testing-library/jest-dom';
 
 import React, { useContext } from 'react';
@@ -26,7 +28,9 @@ describe('Form', () => {
 
     const { getByTestId } = render(
       <Form form={form} onSubmit={handleSubmit}>
-        <button data-testid="button">Submit</button>
+        <button type="submit" data-testid="button">
+          Submit
+        </button>
       </Form>,
     );
 

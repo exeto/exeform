@@ -1,102 +1,32 @@
 {
   "root": true,
-  "parser": "babel-eslint",
-  "plugins": ["react", "react-hooks"],
-  "extends": [
-    "eslint:recommended",
-    "google",
-    "plugin:prettier/recommended",
-    "prettier/@typescript-eslint"
-  ],
-  "env": {
-    "node": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "script",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
-  "rules": {
-    "strict": ["error", "global"],
-    "react/forbid-foreign-prop-types": ["warn", { "allowInPropTypes": true }],
-    "react/jsx-no-comment-textnodes": "warn",
-    "react/jsx-no-duplicate-props": "warn",
-    "react/jsx-no-target-blank": "warn",
-    "react/jsx-no-undef": "error",
-    "react/jsx-pascal-case": [
-      "warn",
-      {
-        "allowAllCaps": true,
-        "ignore": []
-      }
-    ],
-    "react/jsx-uses-react": "warn",
-    "react/jsx-uses-vars": "warn",
-    "react/no-danger-with-children": "warn",
-    "react/no-direct-mutation-state": "warn",
-    "react/no-is-mounted": "warn",
-    "react/no-typos": "error",
-    "react/react-in-jsx-scope": "error",
-    "react/require-render-return": "error",
-    "react/style-prop-object": "warn",
-    "react-hooks/rules-of-hooks": "error"
-  },
   "overrides": [
     {
-      "files": ["**/*.ts?(x)"],
-      "parser": "@typescript-eslint/parser",
-      "plugins": ["@typescript-eslint"],
+      "files": ["**/*.js"],
+      "extends": ["airbnb-base", "plugin:prettier/recommended"],
       "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module",
-        "warnOnUnsupportedTypeScriptVersion": true,
-        "ecmaFeatures": {
-          "jsx": true
-        }
+        "sourceType": "script"
       },
       "rules": {
-        "default-case": "off",
-        "no-dupe-class-members": "off",
-        "no-undef": "off",
-        "@typescript-eslint/consistent-type-assertions": "warn",
-        "no-array-constructor": "off",
-        "@typescript-eslint/no-array-constructor": "warn",
-        "no-use-before-define": "off",
-        "@typescript-eslint/no-use-before-define": [
-          "warn",
-          {
-            "functions": false,
-            "classes": false,
-            "variables": false,
-            "typedefs": false
-          }
-        ],
-        "no-unused-expressions": "off",
-        "@typescript-eslint/no-unused-expressions": [
-          "error",
-          {
-            "allowShortCircuit": true,
-            "allowTernary": true,
-            "allowTaggedTemplates": true
-          }
-        ],
-        "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": [
-          "warn",
-          {
-            "args": "none",
-            "ignoreRestSiblings": true
-          }
-        ],
-        "no-useless-constructor": "off",
-        "@typescript-eslint/no-useless-constructor": "warn"
+        "strict": ["error", "global"]
+      }
+    },
+    {
+      "files": ["**/*.ts?(x)"],
+      "extends": [
+        "airbnb",
+        "airbnb/hooks",
+        "airbnb-typescript",
+        "plugin:prettier/recommended"
+      ],
+      "parserOptions": {
+        "project": "./tsconfig.eslint.json"
+      },
+      "rules": {
+        "import/prefer-default-export": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/function-component-definition": "off",
+        "react/jsx-props-no-spreading": "off"
       }
     }
   ]

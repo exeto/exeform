@@ -54,6 +54,7 @@ export const set = <Values>(
     const [key, ...restKeys] = keys;
 
     if (!isObject(valuesInner) && !Array.isArray(valuesInner)) {
+      // eslint-disable-next-line no-param-reassign
       valuesInner = isNumber(key) ? [] : {};
     }
 

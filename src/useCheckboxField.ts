@@ -6,9 +6,12 @@ const useCheckboxField = (name: string) => {
   const { field, meta, helpers } = useField(name);
   const { value, ...rest } = field;
 
-  const onChange = useCallback(({ target }: ChangeEvent<any>) => {
-    helpers.setValue(target.checked);
-  }, []);
+  const onChange = useCallback(
+    ({ target }: ChangeEvent<any>) => {
+      helpers.setValue(target.checked);
+    },
+    [helpers],
+  );
 
   return {
     field: {

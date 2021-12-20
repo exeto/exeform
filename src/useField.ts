@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, ChangeEvent } from 'react';
+import { useCallback, useEffect, useState, useMemo, ChangeEvent } from 'react';
 
 import { get } from './utils';
 import useFormContext from './useFormContext';
@@ -15,11 +15,14 @@ const equalState = (a: State, b: State) =>
 const useField = (name: string) => {
   const form = useFormContext();
 
-  const getState = () => ({
-    value: get(form.values, name),
-    error: form.errors[name] || null,
-    touched: form.touched[name] || false,
-  });
+  const getState = useCallback(
+    () => ({
+      value: get(form.values, name),
+      error: form.errors[name] || null,
+      touched: form.touched[name] || false,
+    }),
+    [form, name],
+  );
 
   const [state, setState] = useState(getState);
 
@@ -33,7 +36,7 @@ const useField = (name: string) => {
     });
 
     return unsubscribe;
-  }, [name, form]);
+  }, [name, form, getState]);
 
   const setValueHelper = useCallback(
     (value) => {
@@ -65,16 +68,21 @@ const useField = (name: string) => {
 
   const onBlur = useCallback(() => {
     setTouchedHelper();
-  }, []);
+  }, [setTouchedHelper]);
+
+  const helpers = useMemo(
+    () => ({
+      setValue: setValueHelper,
+      setTouched: setTouchedHelper,
+      setError: setErrorHelper,
+    }),
+    [setErrorHelper, setTouchedHelper, setValueHelper],
+  );
 
   return {
     field: { name, value: state.value, onChange, onBlur },
     meta: { error: state.error, touched: state.touched },
-    helpers: {
-      setValue: setValueHelper,
-      setTouched: setTouchedHelper,
-      setError: setErrorHelper,
-    },
+    helpers,
   };
 };
 
