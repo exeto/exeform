@@ -1,3 +1,5 @@
+/** @jest-environment jsdom */
+
 import React, { FC } from 'react';
 import { renderHook, act } from '@testing-library/react-hooks';
 import { render, act as reactAct } from '@testing-library/react';
