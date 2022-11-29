@@ -7,6 +7,8 @@
 
 > Forms with minimum code and maximum performance
 
+# THIS PACKAGE IS NO LONGER MAINTAINED
+
 ## Features
 
 - Maximum out-of-the-box performance
